@@ -27,6 +27,16 @@ function App() {
       },
       body: JSON.stringify(newUser)
     })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      const addedUser = data;
+      const newUsers = [...users, addedUser];
+      setUsers(newUsers);
+    })
+
+    nameRef.current.value = '';
+    emailRef.current.value = '';
 
     e.preventDefault();
   }
